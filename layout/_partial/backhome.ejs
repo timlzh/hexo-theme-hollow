@@ -1,3 +1,14 @@
-<a class="nav-back" href="<%- config.root %>">
+<!-- <a class="nav-back" href="javascript:back()">
     <i class="fa fa-arrow-left"></i>
 </a>
+
+<script>
+    function back() {
+        var home = '<%- config.root || '/' %>'
+        if (document.referrer && document.referrer.indexOf(home) > -1) {
+            window.history.back();
+        } else {
+            window.location.href = home;
+        }
+    }
+</script> -->

@@ -65,7 +65,15 @@
 </section>
 
 <!-- Image viewer-->
-<%- partial('_partial/img-viewer') %>
+<% if(!(item.img_viewer==false)) { %>
+    <%- partial('_partial/img-viewer') %>
+<% } %>
 
 <!-- TOC -->
-<%- partial("_partial/toc", {post: item}) %>
+<!-- <%- partial("_partial/toc", {post: item}) %> -->
+
+<% if(theme.hljs.enable){ %>
+    <script>
+        hljs.highlightAll();
+    </script>
+<% } %>

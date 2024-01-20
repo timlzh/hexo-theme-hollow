@@ -182,9 +182,10 @@ p a,
 .pagiantion li > a,
 #article-toc-inner .toc-link {
     color: var(--font-color) !important;
-    text-decoration: none !important;
+    // text-decoration: none !important;
     &:focus, &:hover{
         color: var(--link-color) !important;
+        // text-decoration: underline !important;
     }
 }
 
@@ -208,6 +209,15 @@ p a,
     }
 }
 
+article .container .row a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+    &:focus, &:hover {
+        color: var(--link-color) !important;
+        text-decoration: underline !important;
+    }
+}
+
 .post-preview blockquote p{
     color: var(--font-color) !important;
 }
@@ -225,6 +235,11 @@ figure.highlight table .line {
 
 // code inline
 code {
+    color: var(--font-color) !important;
+    // background-color: #273435 !important;
+}
+
+p code {
     color: var(--font-color) !important;
     background-color: #273435 !important;
 }

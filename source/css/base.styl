@@ -14,7 +14,7 @@ p
   line-height 1.8
   margin 20px 0
   a
-    text-decoration underline
+    text-decoration none
 
 h1, h2, h3
   @extend .serif
@@ -23,19 +23,27 @@ h1, h2, h3
 
 h4, h5, h6
   @extend .serif
-  font-weight 500
+  font-weight 600
   margin 20px 0
 
 a
   color red
   &:hover, &:focus
     color gray-dark
-    text-decoration none
+    text-decoration underline
   &:visited, &:link
     color red
 a img
   &:hover, &:focus
     cursor zoom-in
+
+.nav-search
+  &:hover, &:focus
+    text-decoration none
+
+.go-top
+  &:hover, &:focus
+    text-decoration none
 
 hr.small
   max-width 100px
@@ -313,7 +321,7 @@ form .row:first-child .floating-label-form-group
       border none
       border-radius none
     > a:hover, > a:focus
-      text-decoration none
+      text-decoration underline
       color red
       background-color transparent
   .disabled

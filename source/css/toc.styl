@@ -10,10 +10,13 @@
 #article-toc {
     display: block;
     position: fixed;
-    top: 0;
+    top: 50%;
     bottom: 0;
     right: 0;
     width: 16%;
+    max-height: 80%;
+    overflow-y: scroll;
+    transform: translate(0,-50%);
 }
 
 @media screen and (max-width:986px) {
@@ -25,8 +28,9 @@
 #article-toc-inner {
     width: 100%;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    // top: 50%;
+    max-height: 100%;
+    // transform: translateY(-50%);
 }
 
 #article-toc-inner .toc {

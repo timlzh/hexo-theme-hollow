@@ -2,6 +2,8 @@
     <%- partial('_partial/page-tags', {item: page}) %>
 <% } else if (page.type === 'categories') { %>
     <%- partial('_partial/page-categories', {item: page}) %>
+<% } else if (page.type === 'friends') { %>
+    <%- partial('_partial/page-friends', {item: page}) %>
 <% } else { %>
     <%- partial('_partial/article-full', {item: page}) %>
 <% } %>

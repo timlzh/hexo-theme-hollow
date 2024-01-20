@@ -1,4 +1,13 @@
 function enableDarkMode() {
+    var css = document.getElementById('hljs-theme-light');
+    css && document.head.removeChild(css);
+
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/' + darkTheme + '.min.css';
+    css.id = 'hljs-theme-dark';
+    document.head.appendChild(css);
+
     if (document.querySelector('link[href="/css/darkmode.css"]')) {
         return;
     }
@@ -12,6 +21,15 @@ function enableDarkMode() {
 function disableDarkMode() {
     var css = document.querySelector('link[href="/css/darkmode.css"]');
     css && document.head.removeChild(css);
+
+    var css = document.getElementById('hljs-theme-dark');
+    css && document.head.removeChild(css);
+
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/' + lightTheme + '.min.css';
+    css.id = 'hljs-theme-light';
+    document.head.appendChild(css);
 }
 
 function isDarkMode() {
@@ -28,7 +46,11 @@ function toggleDarkMode() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('darkmode') === null) {
+        localStorage.setItem('darkmode', '0');
+    }
+
     if (localStorage.getItem('darkmode') === '0') {
         disableDarkMode();
         document.querySelector('[data-toggle="darkmode"] .fa-moon-o').style.display = 'inline-block';

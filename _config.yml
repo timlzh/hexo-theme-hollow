@@ -54,4 +54,6 @@ footer:
 # https://highlightjs.org/
 hljs:
   enable: true
-  theme: atom-one-dark
+  theme:
+    light: github
+    dark: github-dark-dimmed

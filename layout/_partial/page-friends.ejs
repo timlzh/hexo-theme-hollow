@@ -1,0 +1,57 @@
+<section class="article-container">
+    <!-- Back Home -->
+    <%- partial('_partial/backhome') %>
+
+        <!-- Page Header -->
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>
+                                <%- item.title %>
+                            </h1>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <!-- Post Main Content -->
+                    <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="friend-cards-container">
+                            <% item.data.sort((a,  b)  =>  {
+                                var i = 0;
+                                while(a.nick[i] == b.nick[i]) i++;
+                                return  a.nick.toLowerCase().charCodeAt(i) - b.nick.toLowerCase().charCodeAt(i);
+                            }) %>
+                            <% item.data.forEach(function(data){ %>
+                                <div class="card">
+                                    <div class="avatar">
+                                        <img src="<%= data.avatar %>" alt="Avatar" />
+                                    </div>
+                                    <div class="content">
+                                        <p class="nick"><%= data.nick %></p>
+                                        <p class="description"><%= data.description %></p>
+                                    </div>
+                                    <a href="<%= data.link %>"></a>
+                                </div>
+                            <% }); %>
+                        </div>
+                        <hr>
+                        <%- item.content %>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <%- partial("_partial/comment.ejs") %>
+                    </div>
+                </div>
+            </div>
+        </article>
+</section>
